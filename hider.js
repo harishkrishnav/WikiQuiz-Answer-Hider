@@ -14,13 +14,11 @@ async function hideAnswers() {
   }
   
   var elements = document.getElementsByClassName("ng-binding");
-  let counter = 0;
 
   for (item of elements) {
     try {
       if(item.attributes['data-ng-bind-html'].value === "r.answer|render"){
         item.id = counter;
-        counter = counter+1;
 
         item.style.visibility = 'hidden';
         
@@ -31,7 +29,6 @@ async function hideAnswers() {
         answerCopy.style.width = 'fit-content';
 
         const newButton = document.createElement("button");
-        newButton.className = counter;
         newButton.innerText = "Click to reveal answer";
         newButton.style.visibility = 'visible';
         newButton.style.width = 'stretch';
